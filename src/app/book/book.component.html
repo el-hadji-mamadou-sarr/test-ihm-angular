@@ -1,3 +1,24 @@
-<div *ngIf="book">
-  {{book.name}}
+<div class="d-flex justify-content-center" style="margin-top: 3rem;">
+
+  <div class="card" style="width: 40rem;" *ngIf="book">
+    <div class="card-header">
+      {{book.name}}
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let author of book.authors"><span>{{author}}</span></li>
+      <li class="list-group-item">{{book.numberOfPages}}</li>
+      <li class="list-group-item">{{book.released}}</li>
+      <li class="list-group-item">{{book.country}}</li>
+      <li class="list-group-item">{{book.publisher}}</li>
+      <li class="list-group-item d-flex flex-column">
+        <div class="d-flex justify-content-between">
+          <h5>les personnages</h5>
+          <a href="">afficher plus</a>
+        </div>
+        <ul>
+
+        </ul>
+      </li>
+    </ul>
+  </div>
 </div>

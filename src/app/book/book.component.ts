@@ -13,10 +13,8 @@ import {CharacterService} from "../character.service";
 export class BookComponent implements OnInit{
 
   book ?:Book;
-  characters:Character[] = [];
   ngOnInit() {
     this.getBook()
-
   }
   constructor(private route:ActivatedRoute,
               private bookService:BookService,
@@ -28,20 +26,10 @@ export class BookComponent implements OnInit{
       this.bookService.getBook(id).subscribe((book)=>{
       this.book=book;
 
-      this.book.characters.map((character)=>{
-        this.characterService.getCharacter(character)
-          .subscribe(character=>this.characters.push(character))
-      })
-
     });
 
   }
 
-  getCharacters(){
-    this.book?.characters.map((character)=>{
-      this.characterService.getCharacter(character).subscribe(character=>this.characters.push(character))
-    })
-  }
 
 
 }

@@ -1,0 +1,21 @@
+<li class="list-group-item d-flex flex-column" *ngIf="allCharacters">
+  <div class="d-flex justify-content-between">
+    <h5>les personnages</h5>
+  </div>
+  <ul class="list-group list-group-flush" *ngFor="let character of allCharacters | slice:(page-1)*pageSize: page*pageSize">
+    <li class="list-group-item">{{character.name}}</li>
+  </ul>
+</li>
+<div class="">
+
+</div>
+<ngb-pagination
+		[collectionSize]="allCharacters.length"
+		[(page)]="page"
+		[pageSize]="pageSize"
+    [maxSize]="6"
+    [rotate]="true"
+    [ellipses]="false"
+    [boundaryLinks]="true"
+	>
+</ngb-pagination>

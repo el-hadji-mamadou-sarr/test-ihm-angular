@@ -1,0 +1,26 @@
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">nom</th>
+			<th scope="col">auteur</th>
+			<th scope="col">date de publication</th>
+			<th scope="col">nombre de pages</th>
+			<th scope="col">éditeur</th>
+			<th scope="col">pays</th>
+
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let book of books; index as i">
+			<th scope="row">{{ i + 1 }}</th>
+			<td><a routerLink="/book/{{i+1}}">{{ book.name }}</a></td>
+			<td *ngFor="let author of book.authors"><span>{{author}}, </span></td>
+			<td>{{ book.released |date }}</td>
+			<td>{{ book.numberOfPages }}</td>
+			<td>{{ book.publisher }}</td>
+			<td>{{ book.country  }}</td>
+		</tr>
+	</tbody>
+</table>
